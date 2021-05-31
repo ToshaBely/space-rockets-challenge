@@ -6,6 +6,7 @@ import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
 import LoadMoreButton from "./load-more-button";
 import { useSpaceXPaginated } from "../utils/use-space-x";
+import AddToFavoritesButton from "./add-to-favorites-button";
 
 const PAGE_SIZE = 12;
 
@@ -76,14 +77,17 @@ function LaunchPadItem({ launchPad }) {
           </Box>
         </Box>
 
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {launchPad.name}
+        <Box display="flex" alignItems="center" marginTop="1">
+          <AddToFavoritesButton itemType="launchPads" itemId={launchPad.site_id} styles={{ paddingTop: 1 }} />
+
+          <Box
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            isTruncated
+          >
+            {launchPad.name}
+          </Box>
         </Box>
         <Text color="gray.500" fontSize="sm">
           {launchPad.vehicles_launched.join(", ")}

@@ -8,6 +8,7 @@ import { formatDate } from "../utils/format-date";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
 import LoadMoreButton from "./load-more-button";
+import AddToFavoritesButton from "./add-to-favorites-button";
 
 const PAGE_SIZE = 12;
 
@@ -101,14 +102,17 @@ export function LaunchItem({ launch }) {
           </Box>
         </Box>
 
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {launch.mission_name}
+        <Box display="flex" alignItems="center" marginTop="1">
+          <AddToFavoritesButton itemType="launches" itemId={launch.flight_number} styles={{ paddingTop: 1 }} />
+
+          <Box
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            isTruncated
+          >
+            {launch.mission_name}
+          </Box>
         </Box>
         <Flex>
           <Text fontSize="sm">{formatDate(launch.launch_date_utc)} </Text>

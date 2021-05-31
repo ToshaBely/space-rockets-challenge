@@ -21,6 +21,7 @@ import { useSpaceX } from "../utils/use-space-x";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
 import { LaunchItem } from "./launches";
+import AddToFavoritesButton from "./add-to-favorites-button";
 
 export default function LaunchPad() {
   let { launchPadId } = useParams();
@@ -89,6 +90,14 @@ function Header({ launchPad }) {
         fontSize={["md", "3xl"]}
         borderRadius="lg"
       >
+        <AddToFavoritesButton
+          itemType="launchPads"
+          itemId={launchPad.site_id}
+          styles={{ paddingBottom: 2 }}
+          isBig
+          withStroke
+        />
+
         {launchPad.site_name_long}
       </Heading>
       <Stack isInline spacing="3">
