@@ -1,12 +1,9 @@
 import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UI_CLOSE_FAVORITES_ASIDE, UI_OPEN_FAVORITES_ASIDE } from "./actions";
-
-const AVAILABLE_FAVORITE_TYPES = ["launches", "launchPads"];
+import { getLocalStorageFavorites, setLocalStorageData } from "../utils/storage";
+import { AVAILABLE_FAVORITE_TYPES, FAVORITES_KEY } from "../utils/constants";
 
 const initialState = {
-    favorites: {
-        launches: [],
-        launchPads: [],
-    },
+    favorites: getLocalStorageFavorites(),
     ui: {
         isFavoritesAsideOpen: false,
     },
@@ -28,12 +25,16 @@ export function appReducer(state = initialState, action) {
                 favList.push(id);
             }
 
+            let updatedFavorites = {
+                ...state.favorites,
+                [type]: favList,
+            };
+
+            setLocalStorageData(FAVORITES_KEY, updatedFavorites);
+
             return {
                 ...state,
-                favorites: {
-                    ...state.favorites,
-                    [type]: favList,
-                },
+                favorites: updatedFavorites,
             };
         }
 
@@ -47,12 +48,16 @@ export function appReducer(state = initialState, action) {
 
             let favList = state.favorites[type].filter((itemId) => itemId !== id);
 
+            let updatedFavorites = {
+                ...state.favorites,
+                [type]: favList,
+            };
+
+            setLocalStorageData(FAVORITES_KEY, updatedFavorites);
+
             return {
                 ...state,
-                favorites: {
-                    ...state.favorites,
-                    [type]: favList,
-                },
+                favorites: updatedFavorites,
             };
         }
 
