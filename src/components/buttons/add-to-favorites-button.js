@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { StarIcon } from "@chakra-ui/icons";
 import { Button } from "@chakra-ui/core";
 
-import { addToFavoritesAction, removeFromFavoritesAction } from "../redux/actions";
-import { isItemFavorite } from "../redux/selectors";
+import { addToFavoritesAction, removeFromFavoritesAction } from "../../redux/actions";
+import { isItemFavorite } from "../../redux/selectors";
 
 const BASE_STAR_COLOR = 'gray.300';
 const FAVORITE_STAR_COLOR = 'yellow.300';

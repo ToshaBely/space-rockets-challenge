@@ -26,7 +26,7 @@ import { useSpaceX } from "../utils/use-space-x";
 import { formatDateTime, formatIncomingLocalDateTime, USER_TIMEZONE } from "../utils/format-date";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
-import AddToFavoritesButton from "./add-to-favorites-button";
+import AddToFavoritesButton from "./buttons/add-to-favorites-button";
 
 export default function Launch() {
   let { launchId } = useParams();
