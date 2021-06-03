@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Badge, Box, PseudoBox, Spinner, Text } from "@chakra-ui/core";
 
 import AddToFavoritesButton from "../buttons/add-to-favorites-button";
-import { formatDate } from "../../utils/format-date";
+import { formatDate } from "../../utils/format-date/format-date";
 
 export default function FavoriteLaunchItem({ item }) {
   if (!item) {
