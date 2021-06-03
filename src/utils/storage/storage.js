@@ -1,4 +1,4 @@
-import { AVAILABLE_FAVORITE_TYPES, EMPTY_FAVORITES_OBJECT, FAVORITES_KEY } from "./constants";
+import { AVAILABLE_FAVORITE_TYPES, EMPTY_FAVORITES_OBJECT, FAVORITES_KEY } from "../constants";
 
 export function setLocalStorageData(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
