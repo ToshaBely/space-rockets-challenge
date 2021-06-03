@@ -26,6 +26,7 @@ import { useSpaceX } from "../utils/use-space-x";
 import { formatDateTime, formatIncomingLocalDateTime, USER_TIMEZONE } from "../utils/format-date";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
+import AddToFavoritesButton from "./buttons/add-to-favorites-button";
 
 export default function Launch() {
   let { launchId } = useParams();
@@ -87,13 +88,21 @@ function Header({ launch }) {
       />
       <Heading
         color="white"
-        display="inline"
+        display="flex"
+        alignItems="center"
         backgroundColor="#718096b8"
         fontSize={["lg", "5xl"]}
         px="4"
         py="2"
         borderRadius="lg"
       >
+        <AddToFavoritesButton
+          itemType="launches"
+          itemId={launch.flight_number}
+          isBig
+          withStroke
+        />
+
         {launch.mission_name}
       </Heading>
       <Stack isInline spacing="3">
