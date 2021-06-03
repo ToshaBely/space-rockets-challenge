@@ -11,7 +11,7 @@ import LaunchPads from "./launch-pads";
 import LaunchPad from "./launch-pad";
 import FavoritesAside from "./favorites/favorites-aside";
 import OpenFavoritesButton from "./buttons/open-favorites-button";
-import { appReducer } from "../redux/reducer";
+import { appReducer } from "../redux/reducer/reducer";
 
 const store = createStore(appReducer);
 

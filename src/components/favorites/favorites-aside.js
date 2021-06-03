@@ -20,7 +20,7 @@ import FavoriteLaunchItem from "./favorite-launch-item";
 import FavoriteLaunchPadItem from "./favorite-launch-pad-item";
 import Error from "../error";
 import { useSpaceX } from "../../utils/use-space-x";
-import { getFavorites, isUIFavoritesAsideOpen } from "../../redux/selectors";
+import { getFavorites, isUIFavoritesAsideOpen } from "../../redux/selectors/selectors";
 import { uiCloseFavoritesAsideAction } from "../../redux/actions";
 
 const LAUNCH_FIELDS_FILTER_STRING = [
