@@ -29,7 +29,7 @@ const LAUNCH_FIELDS_FILTER_STRING = [
   'mission_name',
   'launch_date_utc',
   'rocket/rocket_name',
-  'launch_site/site_name'
+  'launch_site/site_name',
 ].join(',');
 
 const LAUNCH_PAD_FIELDS_FILTER_STRING = [
@@ -115,6 +115,7 @@ export default function FavoritesAside() {
       onClose={onClose}
       placement="right"
       size="sm"
+      preserveScrollBarGap
     >
       <DrawerOverlay/>
       <DrawerContent>

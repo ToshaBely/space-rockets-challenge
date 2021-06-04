@@ -1,6 +1,8 @@
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
+export const SET_NEXT_LAUNCH = 'SET_NEXT_LAUNCH';
+
 export const UI_OPEN_FAVORITES_ASIDE = 'UI_OPEN_FAVORITES_ASIDE';
 export const UI_CLOSE_FAVORITES_ASIDE = 'UI_CLOSE_FAVORITES_ASIDE';
 
@@ -24,6 +26,18 @@ export function addToFavoritesAction(payload) {
 export function removeFromFavoritesAction(payload) {
     return {
         type: REMOVE_FROM_FAVORITES,
+        payload,
+    };
+}
+
+/**
+ * Creates an action to remove element from favorites list
+ * @param {{data: Object, error: Object}} payload
+ * @returns {{payload, type: string}}
+ */
+export function setNextLaunchAction(payload) {
+    return {
+        type: SET_NEXT_LAUNCH,
         payload,
     };
 }

@@ -1,4 +1,10 @@
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES, UI_CLOSE_FAVORITES_ASIDE, UI_OPEN_FAVORITES_ASIDE } from "../actions";
+import {
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
+  SET_NEXT_LAUNCH,
+  UI_CLOSE_FAVORITES_ASIDE,
+  UI_OPEN_FAVORITES_ASIDE,
+} from "../actions";
 import { getLocalStorageFavorites, setLocalStorageData } from "../../utils/storage/storage";
 import { AVAILABLE_FAVORITE_TYPES, FAVORITES_KEY } from "../../utils/constants";
 
@@ -58,6 +64,18 @@ export function appReducer(state = initialState, action) {
       return {
         ...state,
         favorites: updatedFavorites,
+      };
+    }
+
+    case SET_NEXT_LAUNCH: {
+      let { data, error } = action.payload;
+
+      return {
+        ...state,
+        nextLaunch: {
+          data,
+          error,
+        },
       };
     }
 

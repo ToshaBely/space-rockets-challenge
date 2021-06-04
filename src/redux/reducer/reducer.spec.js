@@ -1,5 +1,5 @@
 import { appReducer } from "./reducer";
-import { addToFavoritesAction, removeFromFavoritesAction } from "../actions";
+import { addToFavoritesAction, removeFromFavoritesAction, SET_NEXT_LAUNCH } from "../actions";
 import { setLocalStorageData } from "../../utils/storage/storage";
 
 jest.mock('../../utils/storage/storage');
@@ -36,6 +36,27 @@ describe('reducer', () => {
       expect(appReducer(state, { type: 'UI_OPEN_FAVORITES_ASIDE' })).toEqual({
         ui: {
           isFavoritesAsideOpen: true,
+        },
+      });
+    });
+  });
+
+  describe('next launch', () => {
+    it('should set provided data & error params', () => {
+      let state = {};
+
+      let action = {
+        type: SET_NEXT_LAUNCH,
+        payload: {
+          data: { id: 'launch_1' },
+          error: { message: 'test error' },
+        },
+      };
+
+      expect(appReducer(state, action)).toEqual({
+        nextLaunch: {
+          data: { id: 'launch_1' },
+          error: { message: 'test error' },
         },
       });
     });
