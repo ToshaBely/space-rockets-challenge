@@ -1,6 +1,11 @@
 import { formatDate, formatDateTime, formatIncomingLocalDateTime } from "./format-date";
 
 describe('format-date utils', () => {
+  it('FAKE FAILED TEST FOR GITHUB ACTION CHECK', () => {
+    expect(true).toBeTruthy();
+    expect(true).toBeFalsy();
+  });
+
   it('formatDate should work', () => {
     let timestamp = '2020-11-21T17:17:00.000Z';
 
