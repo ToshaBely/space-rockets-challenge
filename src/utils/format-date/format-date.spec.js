@@ -3,7 +3,7 @@ import { formatDate, formatDateTime, formatIncomingLocalDateTime } from "./forma
 describe('format-date utils', () => {
   it('FAKE FAILED TEST FOR GITHUB ACTION CHECK', () => {
     expect(true).toBeTruthy();
-    expect(true).toBeFalsy();
+    // expect(true).toBeFalsy();
   });
 
   it('formatDate should work', () => {

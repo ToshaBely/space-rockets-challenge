@@ -2,11 +2,10 @@
 
 name: Space Rockets Challenge CI
 
-on: [push]
-#  push:
-#    branches: [ $default-branch ]
-#  pull_request:
-#    branches: [ $default-branch ]
+on:
+  pull_request:
+    branches:
+    - master
 
 jobs:
   build:
