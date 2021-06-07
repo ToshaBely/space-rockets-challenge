@@ -13,6 +13,7 @@ import {
   TabPanel,
   TabPanels,
   Tabs,
+  Text,
 } from "@chakra-ui/core";
 import { WarningIcon } from "@chakra-ui/icons";
 
@@ -105,6 +106,22 @@ export default function FavoritesAside() {
     );
   }, [favoritesMap]);
 
+  let renderTabPanel = React.useCallback((type) => {
+    if (!favorites[type].length) {
+      return (
+        <Text marginTop="8" color="gray.500" textAlign="center">
+          You have not added any items yet
+        </Text>
+      );
+    }
+
+    return (
+      <>
+        {favorites[type].map((id) => renderItem(type, id))}
+      </>
+    );
+  }, [favorites, renderItem]);
+
   let onClose = React.useCallback(() => {
     dispatch(uiCloseFavoritesAsideAction());
   }, [dispatch]);
@@ -122,7 +139,7 @@ export default function FavoritesAside() {
         <DrawerCloseButton/>
         <DrawerHeader>My favorites</DrawerHeader>
 
-        <DrawerBody>
+        <DrawerBody overflowY="auto">
           <Tabs>
             <TabList>
               {Object.keys(favorites).map((type) => (
@@ -142,7 +159,7 @@ export default function FavoritesAside() {
                   {errorMap[type] ? (
                     <Error />
                   ) : (
-                    favorites[type].map((id) => renderItem(type, id))
+                    renderTabPanel(type)
                   )}
                 </TabPanel>
               ))}
