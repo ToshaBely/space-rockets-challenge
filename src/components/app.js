@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Flex, Text } from "@chakra-ui/core";
-import { createStore } from "redux";
+import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
+import thunkMiddleware from 'redux-thunk'
 
 import Launches from "./launches";
 import Launch from "./launch";
@@ -10,10 +11,11 @@ import Home from "./home";
 import LaunchPads from "./launch-pads";
 import LaunchPad from "./launch-pad";
 import FavoritesAside from "./favorites/favorites-aside";
+import NextLaunchTimer from "./launch/next-launch-timer";
 import OpenFavoritesButton from "./buttons/open-favorites-button";
 import { appReducer } from "../redux/reducer/reducer";
 
-const store = createStore(appReducer);
+const store = createStore(appReducer, applyMiddleware(thunkMiddleware));
 
 export default function App() {
   return (
@@ -52,6 +54,8 @@ function NavBar() {
       >
         ¡SPACE·R0CKETS!
       </Text>
+
+      <NextLaunchTimer />
 
       <OpenFavoritesButton />
     </Flex>

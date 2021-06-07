@@ -1,4 +1,10 @@
-import { getFavorites, isItemFavorite, isUIFavoritesAsideOpen } from "./selectors";
+import {
+  getFavorites,
+  getNextLaunchData,
+  getNextLaunchError,
+  isItemFavorite,
+  isUIFavoritesAsideOpen
+} from "./selectors";
 
 describe('selectors', () => {
   describe('getFavorites', () => {
@@ -20,6 +26,44 @@ describe('selectors', () => {
       let state = { ui: { isFavoritesAsideOpen: true } };
 
       expect(isUIFavoritesAsideOpen(state)).toBeTruthy();
+    });
+  });
+
+  describe('next launch', () => {
+    it('getNextLaunchData should work', () => {
+      let state = {
+        nextLaunch: {
+          data: { id: 'launch_1' },
+        },
+      };
+
+      expect(getNextLaunchData(state)).toEqual({ id: 'launch_1' });
+    });
+
+    it('getNextLaunchError should work', () => {
+      let state = {
+        nextLaunch: {
+          error: { message: 'test error' },
+        },
+      };
+
+      expect(getNextLaunchError(state)).toEqual({ message: 'test error' });
+    });
+
+    it('should work with empty object', () => {
+      let state = {
+        nextLaunch: {},
+      };
+
+      expect(getNextLaunchData(state)).toBeUndefined();
+      expect(getNextLaunchError(state)).toBeUndefined();
+    });
+
+    it('should work with empty state', () => {
+      let state = {};
+
+      expect(getNextLaunchData(state)).toBeUndefined();
+      expect(getNextLaunchError(state)).toBeUndefined();
     });
   });
 
