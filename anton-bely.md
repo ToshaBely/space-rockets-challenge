@@ -1,14 +1,14 @@
-##Task 1 - Bug with timezone
+## Task 1 - Bug with timezone
 
-###SRC-1
+### SRC-1
 [Link to PR](https://github.com/ToshaBely/space-rockets-challenge/pull/1) with detailed description.
 
-##Task 2 - Favorites list feature
+## Task 2 - Favorites list feature
 
-###SRC-2
+### SRC-2
 [Link to PR](https://github.com/ToshaBely/space-rockets-challenge/pull/2) with detailed description and possible improvements.
 
-##Task 3 - Impress us
+## Task 3 - Impress us
 
 - I have added **Redux** to work with data across components fast and easy;
   - Enhanced store with **Redux-thunk** for asynchronous actions;
@@ -21,7 +21,7 @@
   - Added display of message when list is empty;
   - Made container scrollable;
 
-##Further improvements
+## Further improvements
 - Handle wrong route with separate "Not found" page (404);
 - Add Typescript;
 - Group components by entity types;
