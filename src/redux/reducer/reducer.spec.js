@@ -1,5 +1,11 @@
 import { appReducer } from "./reducer";
-import { addToFavoritesAction, removeFromFavoritesAction, SET_NEXT_LAUNCH } from "../actions";
+import {
+  addToFavoritesAction,
+  removeFromFavoritesAction,
+  SET_NEXT_LAUNCH,
+  UI_CLOSE_FAVORITES_ASIDE,
+  UI_OPEN_FAVORITES_ASIDE
+} from "../actions";
 import { setLocalStorageData } from "../../utils/storage/storage";
 
 jest.mock('../../utils/storage/storage');
@@ -19,7 +25,7 @@ describe('reducer', () => {
         },
       };
 
-      expect(appReducer(state, { type: 'UI_CLOSE_FAVORITES_ASIDE' })).toEqual({
+      expect(appReducer(state, { type: UI_CLOSE_FAVORITES_ASIDE })).toEqual({
         ui: {
           isFavoritesAsideOpen: false,
         },
@@ -33,7 +39,7 @@ describe('reducer', () => {
         },
       };
 
-      expect(appReducer(state, { type: 'UI_OPEN_FAVORITES_ASIDE' })).toEqual({
+      expect(appReducer(state, { type: UI_OPEN_FAVORITES_ASIDE })).toEqual({
         ui: {
           isFavoritesAsideOpen: true,
         },

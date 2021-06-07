@@ -10,6 +10,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
+  useToast,
 } from "@chakra-ui/core";
 
 import CountdownTimer from "../countdown-timer";
@@ -19,6 +20,7 @@ import { formatDateTime } from "../../utils/format-date/format-date";
 
 export default function NextLaunchTimer() {
   let dispatch = useDispatch();
+  let toast = useToast();
 
   let nextLaunch = useSelector(getNextLaunchData);
   let error = useSelector(getNextLaunchError);
@@ -28,6 +30,12 @@ export default function NextLaunchTimer() {
   }, []);
 
   let onFinishLaunchTimer = React.useCallback(() => {
+    toast({
+      title: 'Next launch just started!',
+      position: 'top',
+      isClosable: true,
+    });
+
     dispatch(fetchNextLaunchAction());
   }, [dispatch]);
 
