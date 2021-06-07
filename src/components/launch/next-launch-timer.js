@@ -27,7 +27,8 @@ export default function NextLaunchTimer() {
 
   React.useEffect(() => {
     dispatch(fetchNextLaunchAction());
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // on mount only
 
   let onFinishLaunchTimer = React.useCallback(() => {
     toast({
@@ -37,7 +38,7 @@ export default function NextLaunchTimer() {
     });
 
     dispatch(fetchNextLaunchAction());
-  }, [dispatch]);
+  }, [dispatch, toast]);
 
   if (error || !nextLaunch) {
     return null;

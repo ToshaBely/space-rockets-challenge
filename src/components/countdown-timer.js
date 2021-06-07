@@ -32,13 +32,13 @@ export default function CountdownTimer({ date, onFinish }) {
       setCountdownTime({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       onFinish && onFinish();
     }
-  }, [datetime]);
+  }, [datetime, clearTimer, onFinish]);
 
   React.useEffect(() => {
     intervalRef.current = setInterval(tick, 1000);
 
     return clearTimer;
-  }, [tick]); // tick is changed only when datetime is changed
+  }, [tick, clearTimer]); // tick is changed only when datetime is changed & clearTimer doesn't change
 
   if (!countdownTime) {
     return null;
